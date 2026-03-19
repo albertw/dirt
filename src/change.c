@@ -1,5 +1,6 @@
 /*  The CHANGE command.
  */
+#include <stdlib.h>
 #include "kernel.h"
 #include "levels.h"
 #include "pflags.h"
@@ -12,6 +13,12 @@
 #include "change.h"
 #include "parse.h"
 #include "zones.h"
+#include "bprintf.h"
+#include "log.h"
+#include "wizlist.h"
+#include "rooms.h"
+#include "objsys.h"
+#include "mud.h"
 
 static void change_visibility(void);
 static void change_speed(void);

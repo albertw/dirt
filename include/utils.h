@@ -19,7 +19,7 @@ int strncasecmp(char *s1, char *s2, register int n);
 #define TABLE_END ((char *)(-1))
 
 int glookup(char *elem,int n,char **table,
-	    int (*strcmpfun)(char *s1,char *s2,int n));
+	    int (*strcmpfun)(const char *s1,const char *s2,size_t n));
 int tlookup(char *elem,char **table);
 int xlookup(char *elem,char **table);
 

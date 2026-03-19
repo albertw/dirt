@@ -204,7 +204,7 @@ int strncasecmp(char *s1, char *s2, register int n)
 
 
 int glookup(char *elem,int n,char **table,
-	    int (*strcmpfun)(char *s1,char *s2,int n))
+	    int (*strcmpfun)(const char *s1,const char *s2,size_t n))
 {
   char **t;
   int x;
@@ -220,19 +220,17 @@ int glookup(char *elem,int n,char **table,
 
 int tlookup(char *elem,char **table)
 {
-  int strncasecmp(char *s1, char *s2,int n);
-
   return glookup(elem,strlen(elem),table,strncasecmp);
 }
 
-/* the function used for xlookup */
-static int xstrcasecmp(char *s1,char *s2,int n)
+/* wrapper for strcasecmp to match glookup signature */
+static int xstrcasecmp(const char *s1,const char *s2,size_t n)
 {
   /* n is ignored */
   return strcasecmp(s1,s2);
 }
 
-/* Like tlookup but uses strcasecmp (actually xstrcasecmp) 
+/* Like tlookup but uses strcasecmp (actually xstrcasecmp)
 ** instead of strncasecmp
 */
 int xlookup(char *elem,char **table)

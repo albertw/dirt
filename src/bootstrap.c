@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "kernel.h"
 #include "bootstrap.h"
 #include "wizlist.h"
 #include "actions.h"
 #include "timing.h"
 #include "oflags.h"
+#include "log.h"
 
 #define get_newline(f) while (getc(f) != '\n')
 

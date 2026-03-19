@@ -1,5 +1,6 @@
 /*  This module handles all the Input/Output of the system */
 
+#include <stdlib.h>
 #include "kernel.h"
 #include "sflags.h"
 #include "pflags.h"
@@ -7,6 +8,10 @@
 #include "bprintf.h"
 #include "mud.h"
 #include "mobile.h"
+#include "log.h"
+#include "rooms.h"
+#include "parse.h"
+#include <unistd.h>
 
 #ifdef VARGS
 #include <stdarg.h>

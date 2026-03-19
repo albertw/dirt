@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <unistd.h>
 #include "kernel.h"
 #include "bootstrap.h"
 #include "mobile.h"
@@ -11,6 +13,11 @@
 #include "fight.h"
 #include "exits.h"
 #include "clone.h"
+#include "commands.h"
+#include "bprintf.h"
+#include "rooms.h"
+#include "uaf.h"
+#include "log.h"
 
 /**************************************************************************
  * clone.c
