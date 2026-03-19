@@ -6,6 +6,7 @@
 #include <ctype.h>
 
 #include "kernel.h"
+#include <stdlib.h>
 
 #ifdef VARGS
 #include <stdarg.h>

@@ -4,6 +4,7 @@
 */
 
 #include "kernel.h"
+#include <stdlib.h>
 
 
 void make_data(int argc, char **argv);
