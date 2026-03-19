@@ -43,7 +43,7 @@ d:	$(BINDIR)$(MUDD)
 
 
 $(BINDIR)$(GEN):  $(GENOBS)
-	$(CC) -o $(BINDIR)$(GEN) $(CFLAGS) $(GENOBS)
+	$(CC) -o $(BINDIR)$(GEN) $(CFLAGS) $(GENOBS) -lcrypt
 	$(BINDIR)$(GEN) data $(ZONEDIR)/files
 	$(BINDIR)$(GEN) verbs \
                         $(DATADIR)verbs.src $(DATADIR)verbs $(HDIR)verbs.h
@@ -103,10 +103,10 @@ commands.o:     commands.c $(HDIR)commands.h kernel.h mudmacros.h \
                 $(HDIR)objects.h $(HDIR)mobiles.h $(HDIR)sflags.h \
                 $(HDIR)pflags.h $(HDIR)uaf.h \
 
-                $(HDIR)oflags.h $(HDIR)lflags.h $(HDIR)cflags.h \
-                $(HDIR)quests.h $(HDIR)sendsys.h $(HDIR)levels.h \
-                $(HDIR)jmp.h $(HDIR)rooms.h $(HDIR)objsys.h \
-                $(HDIR)mobile.h $(HDIR)bprintf.h $(HDIR)extern.h
+		$(HDIR)oflags.h $(HDIR)lflags.h $(HDIR)cflags.h \
+		$(HDIR)quests.h $(HDIR)sendsys.h $(HDIR)levels.h \
+		$(HDIR)jmp.h $(HDIR)rooms.h $(HDIR)objsys.h \
+		$(HDIR)mobile.h $(HDIR)bprintf.h $(HDIR)extern.h
 
 condition.o:    condition.c $(HDIR)condition.h $(HDIR)condact.h \
                 $(HDIR)oflags.h $(HDIR)levels.h $(HDIR)pflags.h \
