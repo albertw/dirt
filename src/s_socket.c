@@ -9,9 +9,7 @@
 #define NULL ((void *)0)
 
 #include "s_socket.h"
-#include "sendsys.h"
 #include "kernel.h"
-#include "log.h"
 
 int make_service(short unsigned int port,
 		 char               *my_hostname,

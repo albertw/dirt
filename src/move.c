@@ -1,19 +1,15 @@
 /* Movement routines (north, south, go, etc.) */
 
 #include "kernel.h"
-#include "parse.h"
 #include "objects.h"
 #include "mobiles.h"
 #include "locations.h"
 #include "lflags.h"
 #include "levels.h"
 #include "mflags.h"
-#include "sendsys.h"
 #include "move.h"
 #include "fight.h"
 #include "objsys.h"
-#include "rooms.h"
-#include "bprintf.h"
 #include "mobile.h"
 #include "uaf.h"
 

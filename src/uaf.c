@@ -319,8 +319,8 @@ Boolean getuaf(char *name, PERSONA *d)
 
 		switch( tlookup(buff, uaf_tbl) ) {
 		      case UAF_NAME:   s = fscanf(f, "%s", d->p_name); break;
-		      case UAF_TITLE:  s = fscanf(f, "%s, d->p_title); break;
-		      case UAF_PASSWD: s = fscanf(f, "%s, d->p_passwd); break;
+		      case UAF_TITLE:  s = fscanf(f, "%s", d->p_title); break;
+		      case UAF_PASSWD: s = fscanf(f, "%s", d->p_passwd); break;
 		      case UAF_LEVEL:  s = fscanf(f, "%d", d->p_level); break;
 		      case UAF_SCORE:  s = fscanf(f, "%d", d->p_score); break;
 		      case UAF_STR:  s = fscanf(f, "%d", d->p_strength); break;

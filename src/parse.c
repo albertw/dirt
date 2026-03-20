@@ -2,7 +2,6 @@
 #include "condact.h"
 #include "verbs.h"
 #include "sflags.h"
-#include "sendsys.h"
 #include "locations.h"
 #include "objects.h"
 #include "parse.h"
@@ -15,13 +14,10 @@
 #include "wizard.h"
 #include "change.h"
 #include "clone.h"
-#include "bprintf.h"
 #include "actions.h"
 #include "objsys.h"
 #include "wizlist.h"
-#include "log.h"
 #include "uaf.h"
-#include "rooms.h"
 
 #define NOISECHAR(c)	((c) == ' ' || (c) == '.' || (c) == ',' || (c) == '%')
 

@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <time.h>
 
-#include "sendsys.h"
 #include "pflags.h"
 #include "sflags.h"
 #include "mud.h"
@@ -11,10 +10,6 @@
 #include "mobile.h"
 #include "timing.h"
 #include "locations.h"
-#include "rooms.h"
-#include "parse.h"
-#include "bprintf.h"
-#include "log.h"
 #include "zones.h"
 #include "fight.h"
 

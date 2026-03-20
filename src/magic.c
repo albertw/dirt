@@ -1,5 +1,4 @@
 #include "kernel.h"
-#include "sendsys.h"
 #include "magic.h"
 #include "pflags.h"
 #include "sflags.h"
@@ -7,13 +6,10 @@
 #include "lflags.h"
 #include "oflags.h"
 #include "objects.h"
-#include "bprintf.h"
-#include "parse.h"
 #include "mobile.h"
 #include "mud.h"
 #include "uaf.h"
 #include "objsys.h"
-#include "rooms.h"
 
 
 

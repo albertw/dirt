@@ -1,18 +1,14 @@
 #include "kernel.h"
 #include "levels.h"
-#include "sendsys.h"
 #include "pflags.h"
 #include "sflags.h"
 #include "frob.h"
 #include "exec.h"
 #include "uaf.h"
 #include "mobile.h"
-#include "bprintf.h"
-#include "parse.h"
 #include "mud.h"
 #include "wizlist.h"
 #include "flags.h"
-#include "log.h"
 
 #define PFLAGS_FROB ((1<<PFL_FROB)|(1<<PFL_CH_SCORE)|(1<<PFL_CH_LEVEL))
 

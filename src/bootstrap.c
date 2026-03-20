@@ -7,7 +7,6 @@
 #include "actions.h"
 #include "timing.h"
 #include "oflags.h"
-#include "log.h"
 #include <errno.h>
 
 #define get_newline(f) while (getc(f) != '\n')

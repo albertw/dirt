@@ -11,18 +11,13 @@
 #include "cflags.h"
 #include "condition.h"
 #include "mobile.h"
-#include "bprintf.h"
 #include "mud.h"
-#include "parse.h"
-#include "rooms.h"
-#include "objsys.h"
-#include "commands.h"
-#include "log.h"
 #include "fight.h"
 #include "wizard.h"
 #include "move.h"
 #include "zones.h"
-#include "sendsys.h"
+#include "objsys.h"
+#include "commands.h"
 
 CONDITION *conds;
 

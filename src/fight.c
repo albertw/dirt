@@ -6,7 +6,6 @@
 #include "sflags.h"
 #include "pflags.h"
 #include "quests.h"
-#include "sendsys.h"
 #include "verbs.h"
 
 #include "mobiles.h"
@@ -16,15 +15,11 @@
 #include "fight.h"
 #include "mobile.h"
 #include "objsys.h"
-#include "bprintf.h"
 #include "commands.h"
-#include "log.h"
 #include "clone.h"
-#include "rooms.h"
 #include "exec.h"
 #include "mud.h"
 #include "global.h"
-#include "parse.h"
 
 
 struct _spell {

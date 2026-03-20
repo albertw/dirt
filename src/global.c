@@ -14,8 +14,6 @@
 #include "mobile.h"
 #include "flags.h"
 #include "mud.h"
-#include "bprintf.h"
-#include "log.h"
 #include "wizlist.h"
 #include "bootstrap.h"
 

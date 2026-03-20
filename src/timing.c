@@ -6,9 +6,6 @@
 #include "mobile.h"
 #include "weather.h"
 #include "timing.h"
-#include "bprintf.h"
-#include "log.h"
-#include "sendsys.h"
 #include <unistd.h>
 #include "mud.h"
 #include "exec.h"

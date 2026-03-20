@@ -21,6 +21,13 @@
 #include "extern.h"
 #include "files.h"
 
+/* Common functional headers */
+#include "sendsys.h"
+#include "bprintf.h"
+#include "parse.h"
+#include "rooms.h"
+#include "log.h"
+
 
 #define NEW(t, c)		((t *)xmalloc((c), sizeof (t)))
 #define BCOPY(s,l)              memcpy(xmalloc(1, l),s,l)

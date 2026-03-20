@@ -2,14 +2,10 @@
 #include "kernel.h"
 #include "timing.h"
 #include "sflags.h"
-#include "sendsys.h"
 #include "writer.h"
 #include "mobile.h"
-#include "bprintf.h"
-#include "parse.h"
 #include "uaf.h"
 #include "commands.h"
-#include "log.h"
 
 
 

@@ -1,9 +1,5 @@
 #include "kernel.h"
 #include "sflags.h"
-#include "sendsys.h"
-#include "log.h"
-#include "bprintf.h"
-#include "parse.h"
 #include "fight.h"
 #include <stdlib.h>
 

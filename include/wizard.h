@@ -18,12 +18,13 @@ void noshoutcom(void);
 void showlocation(int o);
 void showitem(void);
 
-#if 0
 void wizlock(void);
-#endif
-
 void warcom(void);
 void peacecom(void);
+void followcom(void);
+void losecom(void);
+void wishcom(void);
+void lflagscom(void);
 
 #if 0
 void tracecom(void);

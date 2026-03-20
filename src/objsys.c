@@ -10,19 +10,13 @@
 #include "lflags.h"
 #include "cflags.h"
 #include "quests.h"
-#include "sendsys.h"
 #include "levels.h"
-#include "parse.h"
 #include "objsys.h"
 #include "exec.h"
 #include "oflagnames.h"
-#include "rooms.h"
-#include "objsys.h"
-#include "bprintf.h"
 #include "fight.h"
 #include "commands.h"
 #include "clone.h"
-#include "log.h"
 
 
 typedef struct {

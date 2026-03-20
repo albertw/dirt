@@ -8,9 +8,6 @@
 #include "bprintf.h"
 #include "mud.h"
 #include "mobile.h"
-#include "log.h"
-#include "rooms.h"
-#include "parse.h"
 #include <unistd.h>
 
 #ifdef VARGS

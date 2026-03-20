@@ -18,14 +18,10 @@
 #endif
 
 #include "mud.h"
-#include "log.h"
 #include "bootstrap.h"
-#include "sendsys.h"
 #include "mobile.h"
 #include "commands.h"
 #include "timing.h"
-#include "bprintf.h"
-#include "parse.h"
 #include "zones.h"
 
 #include "s_socket.h"

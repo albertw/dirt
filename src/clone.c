@@ -5,19 +5,14 @@
 #include "mobile.h"
 #include "pflags.h"
 #include "cflags.h"
-#include "sendsys.h"
 #include "objsys.h"
 #include "oflags.h"
 #include "zones.h"
-#include "parse.h"
 #include "fight.h"
 #include "exits.h"
 #include "clone.h"
 #include "commands.h"
-#include "bprintf.h"
-#include "rooms.h"
 #include "uaf.h"
-#include "log.h"
 
 /**************************************************************************
  * clone.c

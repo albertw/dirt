@@ -38,7 +38,6 @@ void petcom(void);
 void polymorph(int plx,int turns);
 int  find_pretender(int plx);
 void aliascom(void);
-Boolean disp_file(char *fname, FILE *f);
 void bulletincom(void);
 
 #define RES_TEST  0x01  /* Perform check for pflag */

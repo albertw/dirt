@@ -6,16 +6,11 @@
 #include <stdarg.h>
 #endif
 
-#include "log.h"
 #include "uaf.h"
-#include "bprintf.h"
 #include "verbs.h"
 #include "wizard.h"
-#include "parse.h"
-#include "sendsys.h"
 #include "mobile.h"
 #include "objsys.h"
-#include "rooms.h"
 #include "flags.h"
 #include "pflags.h"
 #include "lflags.h"
