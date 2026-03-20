@@ -30,7 +30,7 @@ static int modifwthr(int loc, int n)
 /* Determine if a player is supposed to receive a weather-message,
  * and if so, return the proper message.
  */
-static char *test_func(int plr, int arg, char *msg)
+static char *test_func(int plr, intptr_t arg, char *msg)
 {
   /* We neither use arg nor msg here but they are required by send_g_msg */
 

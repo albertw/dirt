@@ -7,6 +7,7 @@
 #include "mud.h"
 #include "bprintf.h"
 #include "commands.h"
+#include <stdint.h>
 
 #ifdef VARGS
 #include <stdarg.h>
@@ -100,8 +101,8 @@ static Boolean test_rcv(int player,      /* Who to send to */
 /* Send general message.
  */
 void send_g_msg(int destination,                        /* Where to send to */
-	        char *func(int plx, int arg, char *t),  /* Test function */
-		int arg,                             /* Argument to test */
+	        char *func(int plx, intptr_t arg, char *t),/* Test function */
+		intptr_t arg,                             /* Argument to test */
 	        char *text)                          /* Text to send */
 {
   char *t;
@@ -165,7 +166,7 @@ struct _send_msg_box {
   int x2;
 };
 
-char *check_send_msg(int plx, int a, char *t)
+char *check_send_msg(int plx, intptr_t a, char *t)
 {
   struct _send_msg_box *b = (struct _send_msg_box *)a;
 
@@ -202,7 +203,7 @@ void send_msg(int destination, /* Where to send to */
   va_start(pvar,format);
   vsprintf(bf, bb, pvar);
   va_end(pvar);
-  send_g_msg(destination,check_send_msg,(int)&b,bf);
+  send_g_msg(destination,check_send_msg,(intptr_t)&b,bf);
 }
 
 
@@ -218,8 +219,8 @@ void sendf(int destination,char *format,...)
 }
 
 void gsendf(int destination,
-	    char *func(int plx, int arg, char *text),
-	    int  arg,
+	    char *func(int plx, intptr_t arg, char *text),
+	    intptr_t  arg,
 	    char *format,...)
 {
   char b[2048];
@@ -259,7 +260,7 @@ void send_msg(int destination, /* Where to send to */
     bb = bf2;
   }
   sprintf(bf, bb, a1, a2, a3, a4, a5, a6, a7, a8, a9);
-  send_g_msg(destination,check_send_msg,(int)&b,bf);
+  send_g_msg(destination,check_send_msg,(intptr_t)&b,bf);
 }
 
 void sendf(int destination,char *format,int a1,int a2,int a3,int a4,int a5,

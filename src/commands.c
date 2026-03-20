@@ -802,7 +802,7 @@ void reviewcom(void)
 
 
 
-static char* shout_test(int player, int sender, char *text)
+static char* shout_test(int player, intptr_t sender, char *text)
 {
   static char buff[MAX_COM_LEN];
 
