@@ -1,33 +1,32 @@
-jmp_buf to_main_loop;
+extern jmp_buf to_main_loop;
 
-FILE *log_fl;
+extern FILE *log_fl;
 
-Location   *room_data;
-Object     *objects;
-UBLOCK_REC *ublock;
+extern Location   *room_data;
+extern Object     *objects;
+extern UBLOCK_REC *ublock;
 
-ZONE	*zoname;
-char	**messages;
-char	**verbtxt;
-char	*txt1;
-char	*txt2;
-int	levels[LVL_WIZARD + 1];
-char	strbuf[MAX_COM_LEN];
-char	wordbuf[MAX_COM_LEN];
-char	item1[MAX_COM_LEN];
-char	item2[MAX_COM_LEN];
+extern ZONE	*zoname;
+extern char	**messages;
+extern char	**verbtxt;
+extern char	*txt1;
+extern char	*txt2;
+extern int	levels[LVL_WIZARD + 1];
+extern char	strbuf[MAX_COM_LEN];
+extern char	wordbuf[MAX_COM_LEN];
+extern char	item1[MAX_COM_LEN];
+extern char	item2[MAX_COM_LEN];
 
-char			*progname;
-char			*data_dir = DATA_DIR;
-char			my_hostname[MAXHOSTNAMELEN];
-struct hostent		*my_hostent;
-struct sockaddr_in      s_in;
-char			**envp;
-int			pid;
+extern char			*progname;
+extern char			my_hostname[MAXHOSTNAMELEN];
+extern struct hostent		*my_hostent;
+extern struct sockaddr_in      s_in;
+extern char			**envp;
+extern int			pid;
 
-PLAYER_REC      *players;
-WORLD_REC       the_world_rec;
-WORLD_REC	*the_world = &the_world_rec;
+extern PLAYER_REC      *players;
+extern WORLD_REC       the_world_rec;
+extern WORLD_REC	*the_world;
 
 /************************
 **
@@ -41,43 +40,43 @@ WORLD_REC	*the_world = &the_world_rec;
 **
 *************************
 */
-int	    mynum;          /* current player slot-number */
-int         real_mynum;     /* real mynum if mynum is fake due to aliasing */
-int         quit_list;      /* real mynum of player to quit */
-PLAYER_REC *cur_player;     /* Current player info. */
-UBLOCK_REC *cur_ublock;     /* Current ublock info. */
+extern int	    mynum;          /* current player slot-number */
+extern int         real_mynum;     /* real mynum if mynum is fake due to aliasing */
+extern int         quit_list;      /* real mynum of player to quit */
+extern PLAYER_REC *cur_player;     /* Current player info. */
+extern UBLOCK_REC *cur_ublock;     /* Current ublock info. */
 
 
-int	max_players = 32;
-int     num_const_chars;
-int	numchars;       /* Number of players + mobiles */
-int     char_array_len;
+extern int	max_players;
+extern int     num_const_chars;
+extern int	numchars;       /* Number of players + mobiles */
+extern int     char_array_len;
 
-int	num_const_obs;  /* Number of constant (not created in-game) objects */
-int	numobs;		/* Number of objects in the game */
-int     obj_array_len;
+extern int	num_const_obs;  /* Number of constant (not created in-game) objects */
+extern int	numobs;		/* Number of objects in the game */
+extern int     obj_array_len;
 
-int     numzon;		/* Number of zones in the world		*/
-int     num_const_zon;
-int     zon_array_len;
+extern int     numzon;		/* Number of zones in the world		*/
+extern int     num_const_zon;
+extern int     zon_array_len;
 
-int     num_const_locs;
-int	numloc;		/* Number of locations */
-int     loc_array_len;
+extern int     num_const_locs;
+extern int	numloc;		/* Number of locations */
+extern int     loc_array_len;
 
-long int   id_counter;  /* Next ID number to be given to a wiz-creation */
-int_table  id_table;    /* Lookup table for [ID numbers -> game indexes] */
+extern long int   id_counter;  /* Next ID number to be given to a wiz-creation */
+extern int_table  id_table;    /* Lookup table for [ID numbers -> game indexes] */
 
-int	*verbnum;
-int	ob1;
-int	ob2;
-int	pl1;
-int	pl2;
-int	pptr;		/* The parameter pointer		*/
-int	prep;
+extern int	*verbnum;
+extern int	ob1;
+extern int	ob2;
+extern int	pl1;
+extern int	pl2;
+extern int	pptr;		/* The parameter pointer		*/
+extern int	prep;
 
-int	stp;
-int	verbcode;
-time_t   next_event;     /* check mud.c */
-time_t   last_reset;     /* Last reset time */
-time_t   global_clock;
+extern int	stp;
+extern int	verbcode;
+extern time_t   next_event;     /* check mud.c */
+extern time_t   last_reset;     /* Last reset time */
+extern time_t   global_clock;

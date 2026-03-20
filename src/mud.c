@@ -1,6 +1,7 @@
 #include "kernel.h"
 #include <sys/stat.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "sendsys.h"
 #include "pflags.h"
@@ -10,6 +11,12 @@
 #include "mobile.h"
 #include "timing.h"
 #include "locations.h"
+#include "rooms.h"
+#include "parse.h"
+#include "bprintf.h"
+#include "log.h"
+#include "zones.h"
+#include "fight.h"
 
 static Boolean login_ok(char *name);
 static void get_pname1(char *name);
@@ -21,6 +28,8 @@ static void kick_out_yn(char *answer);
 static void talker(void);
 
 #include "global.h"
+
+
 
 char *pwait = "Press <Return> to continue...";
 
@@ -201,7 +210,7 @@ static Boolean login_ok(char *name)
   } else {
     bprintf("\nAberMUD opens in %s  (on %s)\n",
 	    sec_to_str(round_to_min(next_event -
-				    time((time_t)NULL)) ),
+				    time(NULL)) ),
 	    my_ctime( &next_event ));
     bprintf("Please come back then.\n\n");
   }

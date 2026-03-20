@@ -8,11 +8,13 @@
 #include "timing.h"
 #include "oflags.h"
 #include "log.h"
+#include <errno.h>
 
 #define get_newline(f) while (getc(f) != '\n')
 
-extern char *sys_errlist[];
-extern int errno;
+
+#include <string.h>
+#include <errno.h>
 
 extern char *Pflags[];
 extern char *WizLevels[];
@@ -58,7 +60,7 @@ int bootstrap(void)
 
 	if ((bootf = fopen(BOOTSTRAP, "r")) == NULL) {
 		printf("fopen: Bootstrap failed for \"" BOOTSTRAP "\".\n");
-		printf("fopen: %s.\n", sys_errlist[errno]);
+		printf("fopen: %s.\n", strerror(errno));
 		return -1;
 	}
 

@@ -9,11 +9,19 @@
 #include "mobile.h"
 #include "exec.h"
 #include "move.h"
+#include "fight.h"
 #include "commands.h"
 #include "weather.h"
 #include "wizard.h"
 #include "change.h"
 #include "clone.h"
+#include "bprintf.h"
+#include "actions.h"
+#include "objsys.h"
+#include "wizlist.h"
+#include "log.h"
+#include "uaf.h"
+#include "rooms.h"
 
 #define NOISECHAR(c)	((c) == ' ' || (c) == '.' || (c) == ',' || (c) == '%')
 
@@ -761,7 +769,7 @@ Boolean parse_2(int vb)
 
   *item1 = *item2 = '\0';
 
-  if (vb == -1) return;
+  if (vb == -1) return False;
   ob1 = pl1 = ob2 = pl2 = -1;
   prep = 0;
   txt1 = markpos();

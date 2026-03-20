@@ -1,6 +1,8 @@
 #include "kernel.h"
 #include "writer.h"
 #include "bprintf.h"
+#include "mud.h"
+#include "parse.h"
 
 /*
  * MUD writer

@@ -1,5 +1,6 @@
 #include "kernel.h"
 
+#include <unistd.h>
 #include <sys/file.h> /* */
 #include <sys/stat.h>
 #include <stdio.h>
@@ -10,7 +11,8 @@
 #include <errno.h>
 #include "log.h"
 
-extern char *sys_errlist[];
+#include <string.h>
+#include <errno.h>
 
 int open_logfile(char *logfile,Boolean clear_flag)
 {
@@ -38,7 +40,7 @@ void close_logfile()
 
 void progerror(char *name)
 {
-  mudlog( "PERROR %s: [%d] %s", name, errno, sys_errlist[errno]);
+  mudlog( "PERROR %s: [%d] %s", name, errno, strerror(errno));
 }
 
 #ifdef VARGS

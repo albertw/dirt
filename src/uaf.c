@@ -12,14 +12,17 @@
 
 #include "mobile.h"
 #include "flags.h"
+#include "mud.h"
+#include "bprintf.h"
+#include "log.h"
+#include "wizlist.h"
+#include "bootstrap.h"
 
 #include <errno.h>
 
 
 
 void get_gender(char *gen);
-
-extern int errno;
 
 extern char *WizLevels[];
 

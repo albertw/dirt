@@ -6,6 +6,7 @@ MUDD    = aberd
 GEN     = generate
 DUMP    = Dump
 PFILTER = pfilter
+LDFLAGS = -lcrypt
 
 CC     = gcc
 CFLAGS = -DDEBUG -O -g -I$(HDIR)
@@ -30,9 +31,9 @@ MUDDOBJS = actions.o bootstrap.o bprintf.o change.o clone.o commands.o \
 	   log.o mail.o magic.o \
 	   main.o mobile.o move.o mud.o objsys.o parse.o rooms.o sendsys.o \
            s_socket.o timing.o uaf.o utils.o weather.o wizard.o \
-           wizlist.o writer.o zones.o
+           wizlist.o writer.o zones.o global.o
 
-GENOBS   = generate.o mkdata.o utils.o
+GENOBS   = generate.o mkdata.o utils.o preproc.o
 
 
 all:	g d $(BINDIR)$(DUMP) $(BINDIR)$(PFILTER)
@@ -43,7 +44,7 @@ d:	$(BINDIR)$(MUDD)
 
 
 $(BINDIR)$(GEN):  $(GENOBS)
-	$(CC) -o $(BINDIR)$(GEN) $(CFLAGS) $(GENOBS) -lcrypt
+	$(CC) -o $(BINDIR)$(GEN) $(CFLAGS) $(GENOBS) $(LDFLAGS)
 	$(BINDIR)$(GEN) data $(ZONEDIR)/files
 	$(BINDIR)$(GEN) verbs \
                         $(DATADIR)verbs.src $(DATADIR)verbs $(HDIR)verbs.h
@@ -102,8 +103,7 @@ commands.o:     commands.c $(HDIR)commands.h kernel.h mudmacros.h \
                 $(HDIR)flags.h $(HDIR)locations.h mudtypes.h \
                 $(HDIR)objects.h $(HDIR)mobiles.h $(HDIR)sflags.h \
                 $(HDIR)pflags.h $(HDIR)uaf.h \
-
-		$(HDIR)oflags.h $(HDIR)lflags.h $(HDIR)cflags.h \
+                $(HDIR)oflags.h $(HDIR)lflags.h $(HDIR)cflags.h \
 		$(HDIR)quests.h $(HDIR)sendsys.h $(HDIR)levels.h \
 		$(HDIR)jmp.h $(HDIR)rooms.h $(HDIR)objsys.h \
 		$(HDIR)mobile.h $(HDIR)bprintf.h $(HDIR)extern.h
@@ -138,6 +138,8 @@ frob.o:		frob.c $(HDIR)frob.h kernel.h $(HDIR)levels.h mudmacros.h \
 
 generate.o:	generate.c mkdata.c kernel.h mudtypes.h
 
+global.o:	global.c $(HDIR)global.h
+
 log.o:	        log.c $(HDIR)log.h
 
 magic.o:	kernel.h mudmacros.h $(HDIR)sendsys.h $(HDIR)magic.h \
@@ -157,7 +159,9 @@ main.o:	        main.c kernel.h $(HDIR)extern.h $(HDIR)log.h \
 
 mkdata.o:	mkdata.c kernel.h mudtypes.h $(HDIR)cflags.h mflagnames.h \
                 pflagnames.h sflagnames.h lflagnames.h oflagnames.h \
-                $(HDIR)lflags.h
+                $(HDIR)lflags.h preproc.h
+
+preproc.o:	preproc.c preproc.h
 
 mobile.o:	mobile.c $(HDIR)mobile.h kernel.h mudtypes.h mudmacros.h \
                 $(HDIR)exits.h $(HDIR)pflags.h $(HDIR)mflags.h \

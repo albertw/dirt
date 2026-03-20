@@ -42,7 +42,7 @@ extern char *optarg;
 void usage(char *progname);
 
 
-main( int argc, char *argv[] )
+int main( int argc, char *argv[] )
 {
     PERSONA      p;
     FILE *       fl;

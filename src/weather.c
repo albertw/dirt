@@ -7,6 +7,7 @@
 #include "lflags.h"
 #include "locations.h"
 #include "bprintf.h"
+#include "parse.h"
 
 /*
  * Weather Routines.

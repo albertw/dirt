@@ -14,7 +14,9 @@
 #include "objsys.h"
 #include "zones.h"
 #include "exitnames.h"
-
+#include "bprintf.h"
+#include "uaf.h"
+#include "fight.h"
 
 /* A room's short description (title)
  */

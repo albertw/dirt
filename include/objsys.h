@@ -26,9 +26,11 @@ Boolean in_inventory(int obj, int player);
 int     dropobj(void);
 void    dropinpit(int o);
 void	list_objects(int n,Boolean f);
+void    listobject(int loc,int mode);
 void    dumpitems(void);
 void    dumpstuff(int n, int loc);
 /*   Boolean set_weapon(int plr, int wpn);  should be moved */
+Boolean set_weapon(int plr, int wpn);
 
 void	oplong(int x);
 int	gotanything(int x);

@@ -5,6 +5,11 @@
 #include "sendsys.h"
 #include "writer.h"
 #include "mobile.h"
+#include "bprintf.h"
+#include "parse.h"
+#include "uaf.h"
+#include "commands.h"
+#include "log.h"
 
 
 
@@ -17,8 +22,6 @@ void mailcom()
 {
     PERSONA        p;
     char           file[256];
-
-    int            unlink(char *file);
 
     if (cur_player->aliased || cur_player->polymorphed != -1) {
 	bprintf("Not while aliased.\n");

@@ -7,6 +7,13 @@
 #include "lflagnames.h"
 #include "levelnames.h"
 #include "questnames.h"
+#include "bprintf.h"
+#include "parse.h"
+#include "rooms.h"
+#include "objsys.h"
+#include "uaf.h"
+#include "log.h"
+#include "mobile.h"
 
 char	*TF[3] = {"False", "True", TABLE_END};
 char    *OO[3] = {"Off", "On", TABLE_END};

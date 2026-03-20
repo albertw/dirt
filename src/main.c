@@ -4,7 +4,9 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/ioctl.h>
+#include <unistd.h>
 #include <signal.h>
+#include <time.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netdb.h>
@@ -22,6 +24,9 @@
 #include "mobile.h"
 #include "commands.h"
 #include "timing.h"
+#include "bprintf.h"
+#include "parse.h"
+#include "zones.h"
 
 #include "s_socket.h"
 
@@ -321,7 +326,7 @@ static int go_background(int fd)
 	return -1;
       }
       close(tty);
-      setpgrp(pid,pid); /* Make our own process group */
+      setpgrp(); /* Make our own process group */
 
     } else if (errno != ENXIO) {
       progerror("open,tty");
@@ -423,9 +428,9 @@ static void get_options(int argc,char **argv)
   char *v;
   int x;
 
+  data_dir = DATA_DIR; 
   if (argc == 1) {
 
-/*    data_dir = DATA_DIR; */
     stay_foreground = False;
     clear_syslog_file = False;
     kill_other_mud = False;
@@ -671,7 +676,7 @@ static void new_connection(int m_socket)
   char               hostnum[MAXHOSTNAMELEN];
 
   sin_len = sizeof(struct sockaddr_in);
-  if ((fd = accept(m_socket,&sin,&sin_len)) < 0) {
+  if ((fd = accept(m_socket,(struct sockaddr *)&sin,&sin_len)) < 0) {
     progerror("accept");
   } else if ((f = fdopen(fd,"w")) == NULL) {
     progerror("fdopen");

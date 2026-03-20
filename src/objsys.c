@@ -18,6 +18,11 @@
 #include "oflagnames.h"
 #include "rooms.h"
 #include "objsys.h"
+#include "bprintf.h"
+#include "fight.h"
+#include "commands.h"
+#include "clone.h"
+#include "log.h"
 
 
 typedef struct {

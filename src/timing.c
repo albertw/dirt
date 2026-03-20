@@ -1,11 +1,17 @@
 #include "kernel.h"
 #include <sys/signal.h>
 #include <sys/time.h>
+#include <time.h>
 #include <errno.h>
 #include "mobile.h"
 #include "weather.h"
 #include "timing.h"
 #include "bprintf.h"
+#include "log.h"
+#include "sendsys.h"
+#include <unistd.h>
+#include "mud.h"
+#include "exec.h"
 
 #define  SECS_IN_A_MIN          60
 #define  SECS_IN_AN_HOUR        (SECS_IN_A_MIN*60)
@@ -15,7 +21,8 @@
 #define  WARNING_1  15    /* Minutes before closing time to give warnings.  */
 #define  WARNING_2   3    /* Only used if the mud is not open 24 hrs. a day */
 
-extern char *sys_errlist[];
+#include <string.h>
+#include <errno.h>
 
 #define NUM_INTERV 30
 
@@ -236,7 +243,7 @@ static int xboot_times(FILE *f,char *fname)
     return -1;
   }
   if (!feof(fl)) {
-    printf("%s:%d [%d]%s\n", fname, lineno, errno, sys_errlist[errno]);
+    printf("%s:%d [%d]%s\n", fname, lineno, errno, strerror(errno));
     fclose(fl);
     return -1;
   }

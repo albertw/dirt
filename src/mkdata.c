@@ -17,6 +17,7 @@
 #define get_mref(z,F) ((XMOB *)get_ref('M', z, F))
 
 #include "cflags.h"
+#include "preproc.h"
 
 #include "mflagnames.h"
 #include "pflagnames.h"
@@ -463,10 +464,9 @@ FILE *zopen(char *fn, char *zn, Boolean *m, char *b, int bs)
     FILE *f;
     char *s;
     char *t;
-    char buff[128];
 
-    sprintf( buff, "/lib/cpp -P -R -I../include %s", fn);
-    f = popen(buff, "r");
+    /* Use our custom preprocessor instead of cpp */
+    f = preproc_open(fn, "../include");
     if (f == NULL) {
         fprintf(stderr, "\nError when opening file %s for zone %s\n",
                 fn, zn);
@@ -476,7 +476,7 @@ FILE *zopen(char *fn, char *zn, Boolean *m, char *b, int bs)
     *m = False;
     do {
         if (xfgets(b,bs,f) == NULL) {
-            pclose(f);
+            preproc_close(f);
             return NULL;
         }
     } while (b[0] != '%');
@@ -491,12 +491,12 @@ FILE *zopen(char *fn, char *zn, Boolean *m, char *b, int bs)
                     if (b[0] == '%')
                         return f;
                 }
-                pclose(f);
+                preproc_close(f);
                 return NULL;
             }
             do {
                 if (xfgets(b,bs,f) == NULL) {
-                    pclose(f);
+                    preproc_close(f);
                     return NULL;
                 }
             } while (strncasecmp(b,"%zone:",6) != 0);
@@ -1252,7 +1252,7 @@ void read_zones(XZON *zo, int nz)
     char buff2[128];
 
     printf("\n");
-    for (z = 0, zon = zo; z < nz; ++z, ++zon, pclose(F)) {
+    for (z = 0, zon = zo; z < nz; ++z, ++zon, preproc_close(F)) {
         sprintf(buff2, "Zone %d(%s) from %s", z, zon->name, zon->fname);
         printf("    %-75s\r", buff2);
         fflush(stdout);
@@ -1424,7 +1424,8 @@ Boolean obj_ok(XOBJ *O, XOBJ *F, char t)
 	    obj_list_l = obj_list = O;
     }
     else {
-	    obj_list_l->the_next = obj_list_l = O;
+	    obj_list_l->the_next = O;
+	    obj_list_l = O;
     }
 
     if (O->linked == NULL)

@@ -7,6 +7,12 @@
 #include "exec.h"
 #include "uaf.h"
 #include "mobile.h"
+#include "bprintf.h"
+#include "parse.h"
+#include "mud.h"
+#include "wizlist.h"
+#include "flags.h"
+#include "log.h"
 
 #define PFLAGS_FROB ((1<<PFL_FROB)|(1<<PFL_CH_SCORE)|(1<<PFL_CH_LEVEL))
 
@@ -31,7 +37,7 @@ struct _f {
 
 
 
-static void log(char *n, int lev, int sco, int str)
+static void frob_log(char *n, int lev, int sco, int str)
 {
   mudlog("FROB: %s by %s: Lev = %d, Sco = %d, Str = %d",
 	 n, pname(mynum), lev, sco, str);
@@ -152,7 +158,7 @@ void frobcom(char *line)
 	  p.p_score = pscore(x);
 	}
 	if (f->state == 2) {
-	  log(f->name, f->level, f->score, f->strength);
+	  frob_log(f->name, f->level, f->score, f->strength);
 	  if (x >= 0) {
 	    setpstr(x,f->strength);
 	    setpscore(x,f->score);

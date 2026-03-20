@@ -3,11 +3,15 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <fcntl.h>
-
+#include <string.h>
+#include <unistd.h>
 
 #define NULL ((void *)0)
 
 #include "s_socket.h"
+#include "sendsys.h"
+#include "kernel.h"
+#include "log.h"
 
 int make_service(short unsigned int port,
 		 char               *my_hostname,
@@ -41,7 +45,7 @@ int make_service(short unsigned int port,
 	  progerror("setsockopt(reuseaddr)");
   }
 
-  if (bind(s,sin,sizeof(*sin)) < 0) {
+  if (bind(s,(struct sockaddr *)sin,sizeof(*sin)) < 0) {
     close(s);
     return -4; /* Error in bind. */
   }

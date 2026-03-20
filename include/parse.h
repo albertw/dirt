@@ -9,3 +9,4 @@ void quit_game(void);
 void erreval(void);
 Boolean parse_2(int vb);
 int findprep(char *t);
+int prmmod(int p);

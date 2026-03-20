@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <unistd.h>
 #include "kernel.h"
 #include "locations.h"
@@ -21,6 +22,14 @@
 #include "parse.h"
 #include "uaf.h"
 #include "clone.h"
+#include "fight.h"
+#include "zones.h"
+#include "log.h"
+#include "mud.h"
+#include "wizlist.h"
+#include "weather.h"
+#include "global.h"
+#include "exec.h"
 
 extern char *WizLevels[];
 extern char *MLevels[];

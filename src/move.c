@@ -10,6 +10,12 @@
 #include "mflags.h"
 #include "sendsys.h"
 #include "move.h"
+#include "fight.h"
+#include "objsys.h"
+#include "rooms.h"
+#include "bprintf.h"
+#include "mobile.h"
+#include "uaf.h"
 
 
 static char *exittxt[] = {

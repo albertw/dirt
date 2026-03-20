@@ -16,6 +16,18 @@
 #include "rooms.h"
 #include "mobile.h"
 #include "fight.h"
+#include "flags.h"
+#include "wizlist.h"
+#include "objsys.h"
+#include "wizard.h"
+#include "commands.h"
+#include "log.h"
+#include "parse.h"
+#include "bprintf.h"
+#include "zones.h"
+#include "uaf.h"
+#include "mud.h"
+#include "exec.h"
 
 
 extern char *WizLevels[];
@@ -24,9 +36,9 @@ extern char *WizLevels[];
 
 /* Compare players (for the qsort() function)
  */
-static int cmp_player(int *a, int *b)
+static int cmp_player(const void *a, const void *b)
 {
-	return plev(*b) - plev(*a);
+	return plev(*(const int *)b) - plev(*(const int *)a);
 }
 
 

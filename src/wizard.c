@@ -21,7 +21,11 @@
 #include "lflags.h"
 #include "sflags.h"
 #include "cflags.h"
-
+#include "wizlist.h"
+#include "commands.h"
+#include "fight.h"
+#include "clone.h"
+#include "mud.h"
 
 extern char *Oflags[];
 

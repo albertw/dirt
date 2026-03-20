@@ -3,6 +3,8 @@
 #include "kernel.h"
 #include "condact.h"
 #include "exec.h"
+#include "parse.h"
+#include "condition.h"
 
 Boolean doing_table = False;
 

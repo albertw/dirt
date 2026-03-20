@@ -3,6 +3,7 @@
 #include <setjmp.h>
 #include <netinet/in.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 
@@ -12,6 +13,7 @@
 #include "levels.h"
 
 #include "exits.h"
+#include "move.h"
 #include "types.h"
 #include "utils.h"
 #include "mudtypes.h"

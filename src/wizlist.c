@@ -1,4 +1,7 @@
 #include "kernel.h"
+#include "log.h"
+#include "bprintf.h"
+#include "parse.h"
 
 extern char *WizLevels[];
 

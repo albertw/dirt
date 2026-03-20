@@ -16,6 +16,15 @@
 #include "fight.h"
 #include "mobile.h"
 #include "objsys.h"
+#include "bprintf.h"
+#include "commands.h"
+#include "log.h"
+#include "clone.h"
+#include "rooms.h"
+#include "exec.h"
+#include "mud.h"
+#include "global.h"
+#include "parse.h"
 
 
 struct _spell {

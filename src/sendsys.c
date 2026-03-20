@@ -4,6 +4,9 @@
 #include "lflags.h"
 #include "sendsys.h"
 #include "mobile.h"
+#include "mud.h"
+#include "bprintf.h"
+#include "commands.h"
 
 #ifdef VARGS
 #include <stdarg.h>

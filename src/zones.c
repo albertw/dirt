@@ -5,6 +5,11 @@
 #include "rooms.h"
 #include "objsys.h"
 #include "clone.h"
+#include "log.h"
+#include "bootstrap.h"
+#include "bprintf.h"
+#include "uaf.h"
+#include "parse.h"
 
 /*
  * Return the zone index for a given zone name (abbreviation).

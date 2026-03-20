@@ -13,6 +13,7 @@
 #include "mud.h"
 #include "uaf.h"
 #include "objsys.h"
+#include "rooms.h"
 
 
 
