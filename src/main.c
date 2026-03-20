@@ -138,8 +138,10 @@ static int xmain(int fd)
   }
 
   /* Now we go background */
-  if (go_background(fd) < 0) {
-    return -1;
+  if (!stay_foreground) {
+    if (go_background(fd) < 0) {
+      return -1;
+    }
   }
 
   k = 10;
