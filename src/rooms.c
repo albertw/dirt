@@ -216,7 +216,7 @@ void exitcom()
 		  return;
 	  }
 	  bprintf("Obvious exits are:\n");
-	  for (a = 0; a < 6; a++) {
+	  for (a = 0; a < NEXITS; a++) {
 		  newch = getexit(room, a);
 		  if (newch >= DOOR && newch < EDOOR) {
 			  /* look through special exits */
@@ -267,6 +267,55 @@ void exitcom()
 
   bprintf("Exit %s from %s is now %s.\n", Exits[exit],
 	  sdesc(room), (newch == 0) ? "removed" : sdesc(newch));
+}
+
+
+/* The AUTOEXITS command - toggles automatic exit display
+ */
+void autoexitscom()
+{
+  bprintf("Auto-exits ");
+  if (ststflg(mynum, SFL_AUTOEXITS)) {
+    bprintf("off.\n");
+    sclrflg(mynum, SFL_AUTOEXITS);
+  }
+  else {
+    bprintf("on.\n");
+    ssetflg(mynum, SFL_AUTOEXITS);
+  }
+}
+
+
+/* Show exits in a compact format (for autoexits) copies much of exitcom()
+ */
+void show_auto_exits(int room)
+{
+  int a, newch, drnum, droff;
+  int b = 0;
+
+  if (r_isdark(room, mynum)) {
+    return;
+  }
+
+  bprintf("[Exits: ");
+  for (a = 0; a < NEXITS; a++) {
+    newch = getexit(room, a);
+    if (newch >= DOOR && newch < EDOOR) {
+      drnum = newch - DOOR;
+      droff = olinked(drnum);
+      if (!state(drnum))
+        newch = obj_loc(droff);
+    }
+    if (newch >= 0)
+      continue; 
+    if (b)
+      bprintf(", ");
+    bprintf("%c: %s", Exits[a][0], sdesc(newch));
+    b = 1;
+  }
+  if (b == 0)
+    bprintf("none");
+  bprintf(".]\n");
 }
 
 
@@ -381,6 +430,10 @@ void lookin(int loc,int showfl)
       show_weather();
       list_objects(1<<OFL_NOGET,False);
       list_people();
+      /* Show exits automatically if autoexits is enabled */
+      if (ststflg(mynum, SFL_AUTOEXITS)) {
+        show_auto_exits(loc);
+      }
   }
   bprintf("\n");
 }

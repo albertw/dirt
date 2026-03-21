@@ -16,3 +16,4 @@
 #define SFL_MAIL        12      /* Player has unread mail */
 #define SFL_BUSY        13      /* Don't use tell, emoteto et.c. */
 #define SFL_NOWIZ       14      /* Wizard can't hear 'wiz' messages. */
+#define SFL_AUTOEXITS   15      /* Auto-exits mode */

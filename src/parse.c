@@ -271,6 +271,9 @@ void doaction(int vb)
   case VERB_ASMORTAL:
     asmortalcom();
     break;
+  case VERB_AUTOEXITS:
+    autoexitscom();
+    break;
   case VERB_DROP:
     dropobj();
     break;

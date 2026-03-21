@@ -11,6 +11,8 @@ int	count_players(int loc,int min_lvl,int max_lvl,int flags);
 void	gotocom(Boolean tiptoe);
 int	exists(int room);
 void	exitcom(void);
+void	autoexitscom(void);
+void	show_auto_exits(int room);
 Boolean roomdark(int room);
 Boolean r_isdark(int room, int plr);
 Boolean isdark(void);
