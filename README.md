@@ -64,4 +64,4 @@ be special):
 
 ## Footnote
 
-This version of this DIRT 3.2.1 code was provided by Alf. Changes in this git repo are to enable it to vompile and run with modern compilers and hardware including a preprocessor to replace the now oboslete 'cpp -R' preprocessing of the zone files. ~albertw
+This version of this DIRT 3.2.1 code was provided by Alf. Changes in this git repo are to enable it to compile and run with modern compilers and hardware including a (claude coded) preprocessor to replace the now oboslete 'cpp -R' preprocessing of the zone files. ~albertw
