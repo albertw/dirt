@@ -44,8 +44,6 @@ char  item2[MAX_COM_LEN];
 /* System / environment */
 char *progname;
 char my_hostname[MAXHOSTNAMELEN];
-struct hostent *my_hostent;
-struct sockaddr_in s_in;
 char **envp;
 int pid;
 

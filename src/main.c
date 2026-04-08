@@ -142,8 +142,7 @@ static int xmain(int fd)
 
   k = 10;
   while ( (s = main_socket = make_service(mud_port,my_hostname,
-					  sizeof(my_hostname),
-					  &my_hostent, &s_in)) == -4
+                                          sizeof(my_hostname))) == -4
 	 && errno == EADDRINUSE && --k >= 0) {
     sleep(2);
   }
